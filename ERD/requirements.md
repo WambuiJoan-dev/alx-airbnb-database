@@ -24,4 +24,33 @@ Attributes: review_id (PK), property_id (FK), user_id (FK), rating, comment, cre
 
 Message: Communication between two users.
 
-Attributes: message_id (PK), sender_id (FK), recipient_id (FK), message_body, s
+Attributes: message_id (PK), sender_id (FK), recipient_id (FK), message_body, 
+
+Relationships and Cardinality
+User to Property: A one-to-many relationship. A User with the host role can list many Properties, but each Property is owned by one User.
+
+Relationship: "hosts"
+
+User to Booking: A one-to-many relationship. A User can create many Bookings, but each Booking is made by only one User.
+
+Relationship: "makes"
+
+Property to Booking: A one-to-many relationship. A Property can have many Bookings, but each Booking is for only one Property.
+
+Relationship: "is booked as"
+
+Booking to Payment: A one-to-one relationship. Each Booking has exactly one corresponding Payment, and each Payment belongs to only one Booking.
+
+Relationship: "has"
+
+User to Review: A one-to-many relationship. A User can write many Reviews, but each Review is written by only one User.
+
+Relationship: "writes"
+
+Property to Review: A one-to-many relationship. A Property can receive many Reviews, but each Review is for only one Property.
+
+Relationship: "is reviewed by"
+
+User to Message: A one-to-many relationship with itself, or a many-to-many relationship represented by two one-to-many relationships. A User can be the sender of many Messages and the recipient of many Messages. The sender_id and recipient_id foreign keys in the Message table link back to the user_id in the User table to define this relationship.
+
+Relationship: "sends/receives"
