@@ -25,7 +25,7 @@ SET STATISTICS TIME OFF;
 
 
 This will show logical reads, CPU time, and elapsed time.
-👉 The expectation is: fewer logical reads + lower execution time on the partitioned table.
+The expectation is: fewer logical reads + lower execution time on the partitioned table.
 
 Report on Partitioning Improvements
 
