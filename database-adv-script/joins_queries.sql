@@ -6,3 +6,15 @@ SELECT
     bookings.end_date
 FROM bookings
 INNER JOIN users ON bookings.user_id = users.id;
+
+-- This query retrieves all bookings along with the username of the user who made each booking.it ensures only bookings witha a valid user are returned, else it wont appear
+
+SELECT
+    properties.id AS property_id,
+    properties.title,
+    reviews.rating,
+    reviews.comment 
+FROM properties
+LEFT JOIN reviews ON properties.id = reviews.property_id;
+-- This query retrieves all properties along with their reviews, if any. Properties without reviews will still be included in the result set. with NULL in rating/comment.
+
